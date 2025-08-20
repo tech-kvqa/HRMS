@@ -883,7 +883,8 @@ export default {
     },
 
     async loadNotifications() {
-      const res = await axios.get('http://127.0.0.1:5000/api/notifications')
+      // const res = await axios.get('http://127.0.0.1:5000/api/notifications')
+      const res = await axios.get('https://hrms-ocfa.onrender.com/api/notifications')
       this.notifications = res.data
     },
     async handleNotificationClick(note, index) {
