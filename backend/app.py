@@ -1,4 +1,7 @@
 # app.py
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask, request, jsonify, render_template, send_file, make_response, Response
 from flask_cors import CORS
 from models import *
