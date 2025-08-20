@@ -74,7 +74,8 @@ MAIL_CONFIG = {
     'MAIL_USE_TLS': True
 }
 
-BASE_URL = "http://localhost:5000"
+# BASE_URL = "http://localhost:5000"
+BASE_URL = "https://hrms-ocfa.onrender.com"
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -552,7 +553,8 @@ def add_employee():
     db.session.add(employee)
     db.session.commit()
 
-    upload_url = f"http://localhost:8080/upload/{employee.id}"
+    # upload_url = f"http://localhost:8080/upload/{employee.id}"
+    upload_url = f"https://hrms-gamma-rosy.vercel.app/upload/{employee.id}"
     send_welcome_email(employee.email, upload_url)
 
     return jsonify({"message": "Employee added and welcome email sent."}), 201
@@ -581,7 +583,8 @@ def send_consent_form(emp_id):
     if not employee:
         return jsonify({'error': 'Employee not found'}), 404
 
-    consent_link = f"http://localhost:8080/consent/{emp_id}"
+    # consent_link = f"http://localhost:8080/consent/{emp_id}"
+    consent_link = f"https://hrms-gamma-rosy.vercel.app/consent/{emp_id}"
 
     send_consent_email(employee.email, employee.name, consent_link)
 
@@ -1119,9 +1122,9 @@ def send_email():
         # tracking_link = f"https://phishing-mail-frontend.vercel.app/phishing_test/{colleague.id}"
         # tracking_link = f"http://localhost:8080/phishing_test/{colleague.id}"
         # tracking_link = f"http://35.182.29.153/api/phish_intermediate/{colleague.id}"
-        tracking_link = f"http://127.0.0.1:5000/api/phish_intermediate/{colleague.id}"
+        # tracking_link = f"http://127.0.0.1:5000/api/phish_intermediate/{colleague.id}"
+        tracking_link = f"https://hrms-ocfa.onrender.com/api/phish_intermediate/{colleague.id}"
         # tracking_link = f"https://phishing-application-demo.vercel.app/phishing_test/{colleague.id}"
-        # tracking_link = f"http://localhost:8080/phishing_test/{colleague.id}"
 
         print(f"Generated tracking link for {colleague.name}: {tracking_link}")
 
@@ -1354,7 +1357,8 @@ def submit_answers(colleague_id):
         report.completion_date = datetime.now()
         db.session.commit()
 
-        study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
+        # study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
+        study_material_link = f"https://hrms-gamma-rosy.vercel.app/study-material/{colleague_id}"
         # study_material_link = f"http://35.182.29.153/study-material/{colleague_id}"
         # study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
 
@@ -1722,7 +1726,8 @@ def send_reminder(report_id):
             colleague_id = report.colleague_id
 
             # study_material_link = f"http://localhost:8080/study-material/{colleague_id}"
-            study_material_link = f"http://35.182.29.153/study-material/{colleague_id}"
+            study_material_link = f"https://hrms-gamma-rosy.vercel.app/study-material/{colleague_id}"
+            # study_material_link = f"http://35.182.29.153/study-material/{colleague_id}"
             # study_material_link = f"https://phishing-application-demo.vercel.app/study-material/{colleague_id}"
 
             msg = MIMEMultipart()
