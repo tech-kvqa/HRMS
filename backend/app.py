@@ -37,12 +37,15 @@ import csv
 from sqlalchemy import func
 import matplotlib.pyplot as plt
 from weasyprint import HTML
+from dotenv import load_dotenv
 
 app = Flask(__name__, template_folder='templates')
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 CORS(app)
+
+load_dotenv()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///hrms.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -60,12 +63,14 @@ def allowed_file(filename):
 UPLOAD_FOLDER_Final = "uploads/final_docs"
 os.makedirs(UPLOAD_FOLDER_Final, exist_ok=True)
 
+password = os.environ.get('EMAIL_PASS')
+username = os.environ.get('EMAIL_USER')
 
 MAIL_CONFIG = {
     'MAIL_SERVER': 'smtp.gmail.com',
     'MAIL_PORT': 587,
-    'MAIL_USERNAME': 'akanuragkumar75@gmail.com',
-    'MAIL_PASSWORD': 'qxbtkoxdbacvqgos',
+    'MAIL_USERNAME': username,
+    'MAIL_PASSWORD': password,
     'MAIL_USE_TLS': True
 }
 
