@@ -1,0 +1,21 @@
+<!-- templates/consent_form.html -->
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ "Consent Form" if lang == 'en' else "अनुमति फ़ॉर्म" }}</title>
+</head>
+<body>
+  <h2>{{ "Consent Form" if lang == 'en' else "अनुमति फ़ॉर्म" }}</h2>
+
+  <form method="POST">
+    {% for purpose in purposes %}
+      <label>
+        <input type="checkbox" name="purpose_ids" value="{{ purpose.id }}">
+        {{ purpose.name }} - {{ purpose.description }}
+      </label><br><br>
+    {% endfor %}
+    <button type="submit">{{ "Submit Consent" if lang == 'en' else "अनुमति जमा करें" }}</button>
+  </form>
+</body>
+</html>
