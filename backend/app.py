@@ -1135,7 +1135,7 @@ def send_email():
         # tracking_link = f"http://localhost:8080/phishing_test/{colleague.id}"
         # tracking_link = f"http://35.182.29.153/api/phish_intermediate/{colleague.id}"
         # tracking_link = f"http://127.0.0.1:5000/api/phish_intermediate/{colleague.id}"
-        tracking_link = f"https://hrms-ocfa.onrender.com/api/phish_intermediate/{colleague.id}"
+        tracking_link = f"https://hrms-4jys.onrender.com/api/phish_intermediate/{colleague.id}"
         # tracking_link = f"https://phishing-application-demo.vercel.app/phishing_test/{colleague.id}"
 
         print(f"Generated tracking link for {colleague.name}: {tracking_link}")

@@ -119,7 +119,7 @@ export default {
       try {
         await axios.post(
           // `http://127.0.0.1:5000/api/employees/${empId}/upload`,
-          `https://hrms-ocfa.onrender.com/api/employees/${empId}/upload`,
+          `https://hrms-4jys.onrender.com/api/employees/${empId}/upload`,
           formData,
           { headers: { 'Content-Type': 'multipart/form-data' } }
         )
