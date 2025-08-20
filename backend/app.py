@@ -41,13 +41,15 @@ from sqlalchemy import func
 import matplotlib.pyplot as plt
 from weasyprint import HTML
 from dotenv import load_dotenv
-import shutil
+# import shutil
 
-tesseract_cmd = shutil.which("tesseract")
-if tesseract_cmd:
-    pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
-else:
-    raise RuntimeError("Tesseract is not installed or not in PATH")
+# tesseract_cmd = shutil.which("tesseract")
+# if tesseract_cmd:
+#     pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
+# else:
+#     raise RuntimeError("Tesseract is not installed or not in PATH")
+
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 app = Flask(__name__, template_folder='templates')
 
