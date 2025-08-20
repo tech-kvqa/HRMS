@@ -42,6 +42,8 @@ import matplotlib.pyplot as plt
 from weasyprint import HTML
 from dotenv import load_dotenv
 
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+
 app = Flask(__name__, template_folder='templates')
 
 socketio = SocketIO(app, cors_allowed_origins="*")
