@@ -852,7 +852,8 @@ export default {
     this.loadEmployees();
     this.loadNotifications()
 
-    const socket = io('http://localhost:5000')
+    // const socket = io('http://localhost:5000')
+    const socket = io('https://hrms-ocfa.onrender.com')
     socket.on('new_notification', (note) => {
       this.notifications.unshift(note)
       this.loadEmployees();
@@ -860,7 +861,8 @@ export default {
   },
   methods: {
     loadEmployees() {
-      axios.get('http://127.0.0.1:5000/api/employees').then(res => {
+      // axios.get('http://127.0.0.1:5000/api/employees').then(res => {
+      axios.get('https://hrms-ocfa.onrender.com/api/employees').then(res => {
         this.employees = res.data
       })
     },
@@ -897,11 +899,13 @@ export default {
       }
 
       // Mark notification as read and remove from UI
-      await axios.patch(`http://127.0.0.1:5000/api/notifications/${note.id}/read`)
+      // await axios.patch(`http://127.0.0.1:5000/api/notifications/${note.id}/read`)
+      await axios.patch(`https://hrms-ocfa.onrender.com/api/notifications/${note.id}/read`)
       this.notifications.splice(index, 1)
     },
     async sendConsent(empId) {
-      await axios.post(`http://127.0.0.1:5000/api/employees/${empId}/send-consent`)
+      // await axios.post(`http://127.0.0.1:5000/api/employees/${empId}/send-consent`)
+      await axios.post(`https://hrms-ocfa.onrender.com/api/employees/${empId}/send-consent`)
     },
 
     // async submitFinalEmail() {
@@ -937,7 +941,8 @@ export default {
       formData.append('offer_letter', this.offerLetterFile);
 
       await axios.post(
-        `http://127.0.0.1:5000/api/employees/${this.selectedEmployeeId}/send-final-email`,
+        // `http://127.0.0.1:5000/api/employees/${this.selectedEmployeeId}/send-final-email`,
+        `https://hrms-ocfa.onrender.com/api/employees/${this.selectedEmployeeId}/send-final-email`,
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );

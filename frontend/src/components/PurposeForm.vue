@@ -26,7 +26,8 @@ export default {
   methods: {
     async submit() {
       try {
-        await axios.post('http://127.0.0.1:5000/api/purposes', this.form)
+        // await axios.post('http://127.0.0.1:5000/api/purposes', this.form)
+        await axios.post('https://hrms-ocfa.onrender.com/api/purposes', this.form)
         this.$emit('purpose-added')
         this.form = { name: '', description: '', departments: '', language: 'en' }
       } catch (e) {

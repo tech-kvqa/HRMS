@@ -200,7 +200,8 @@ export default {
   methods: {
     async showEmployeeInfo(id) {
       try {
-        const res = await fetch(`http://127.0.0.1:5000/api/employees/${id}/info`);
+        // const res = await fetch(`http://127.0.0.1:5000/api/employees/${id}/info`);
+        const res = await fetch(`https://hrms-ocfa.onrender.com/api/employees/${id}/info`);
         const data = await res.json();
         this.selectedEmployee = data;
         this.infoDialog = true;
@@ -215,7 +216,8 @@ export default {
     async previewDocument(employeeId, docType) {
       this.docSelectorDialog = false;
       try {
-        const res = await fetch(`http://127.0.0.1:5000/api/employees/${employeeId}/preview/${docType}`);
+        // const res = await fetch(`http://127.0.0.1:5000/api/employees/${employeeId}/preview/${docType}`);
+        const res = await fetch(`https://hrms-ocfa.onrender.com/api/employees/${employeeId}/preview/${docType}`);
         const data = await res.json();
 
         if (data.file_base64) {

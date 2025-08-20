@@ -32,7 +32,8 @@ export default {
   methods: {
     async submit() {
       try {
-        await axios.post('http://127.0.0.1:5000/api/employees', this.form)
+        // await axios.post('http://127.0.0.1:5000/api/employees', this.form)
+        await axios.post('https://hrms-ocfa.onrender.com/api/employees', this.form)
         this.$emit('employee-added')
         this.form = {
           name: '',

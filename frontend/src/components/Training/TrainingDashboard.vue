@@ -201,7 +201,8 @@ export default {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/send_email', {
+            // const response = await fetch('http://127.0.0.1:5000/api/send_email', {
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/send_email', {
             // const response = await fetch('https://phishing-application-demo.onrender.com/send_email', {
                 method: 'POST',
                 headers: {
@@ -223,7 +224,8 @@ export default {
         }
     },
     async downloadReport() {
-        const response = await fetch('http://127.0.0.1:5000/api/generate_reports');
+        // const response = await fetch('http://127.0.0.1:5000/api/generate_reports');
+        const response = await fetch('https://hrms-ocfa.onrender.com/api/generate_reports');
         // const response = await fetch('http://35.182.29.153/api/generate_reports');
         // const response = await fetch('https://phishing-application-demo.onrender.com/generate_reports');
         const blob = await response.blob();
@@ -239,7 +241,8 @@ export default {
 
     async fetchReports() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/get_all_reports');
+            // const response = await fetch('http://127.0.0.1:5000/api/get_all_reports');
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/get_all_reports');
             // const response = await fetch('http://35.182.29.153/api/get_all_reports');
             // const response = await fetch('https://phishing-application-demo.onrender.com/get_all_reports');
             if (!response.ok) {
@@ -253,7 +256,8 @@ export default {
     },
     async fetchQuestions() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/questions');
+            // const response = await fetch('http://127.0.0.1:5000/api/questions');
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/questions');
             // const response = await fetch('http://35.182.29.153/api/questions');
             // const response = await fetch('https://phishing-application-demo.onrender.com/questions');
             const data = await response.json();
@@ -265,7 +269,8 @@ export default {
 
     async fetchColleagues() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/users');
+            // const response = await fetch('http://127.0.0.1:5000/api/users');
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/users');
             // const response = await fetch('http://35.182.29.153/api/users');
             // const response = await fetch('https://phishing-application-demo.onrender.com/users');
             const data = await response.json();
@@ -309,7 +314,8 @@ export default {
         this.stopPolling();
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/generate_emailed_candidates_report`, {
+            // const response = await fetch(`http://127.0.0.1:5000/api/generate_emailed_candidates_report`, {
+            const response = await fetch(`https://hrms-ocfa.onrender.com/api/generate_emailed_candidates_report`, {
             // const response = await fetch(`http://35.182.29.153/api/generate_emailed_candidates_report`, {
             // const response = await fetch(`https://phishing-application-demo.onrender.com/generate_emailed_candidates_report`, {
                 method: 'GET'
@@ -356,7 +362,8 @@ export default {
         formData.append('file', this.file);
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/upload_colleagues_data', {
+            // const response = await fetch('http://127.0.0.1:5000/api/upload_colleagues_data', {
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/upload_colleagues_data', {
             // const response = await fetch('http://35.182.29.153/api/upload_colleagues_data', {
             // const response = await fetch('https://phishing-application-demo.onrender.com/upload_colleagues_data', {
             method: 'POST',
@@ -405,7 +412,8 @@ export default {
 
     async fetchQuestions() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/questions');
+            // const response = await fetch('http://127.0.0.1:5000/api/questions');
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/questions');
             // const response = await fetch('http://35.182.29.153/api/questions');
             // const response = await fetch('https://phishing-application-demo.onrender.com/questions');
             const data = await response.json();
@@ -416,7 +424,8 @@ export default {
     },
 
     async addQuestion() {
-        const response = await fetch('http://127.0.0.1:5000/api/questions', {
+        // const response = await fetch('http://127.0.0.1:5000/api/questions', {
+        const response = await fetch('https://hrms-ocfa.onrender.com/api/questions', {
         // const response = await fetch('http://35.182.29.153/api/questions', {
         // const response = await fetch('https://phishing-application-demo.onrender.com/questions', {
             method: 'POST',
@@ -448,7 +457,8 @@ export default {
             return;
         }
 
-        const response = await fetch(`http://127.0.0.1:5000/api/questions/${this.currentQuestionId}`, {
+        // const response = await fetch(`http://127.0.0.1:5000/api/questions/${this.currentQuestionId}`, {
+        const response = await fetch(`https://hrms-ocfa.onrender.com/api/questions/${this.currentQuestionId}`, {
         // const response = await fetch(`http://35.182.29.153/api/questions/${this.currentQuestionId}`, {
         // const response = await fetch(`https://phishing-application-demo.onrender.com/questions/${this.currentQuestionId}`, {
             method: 'PUT',
@@ -472,7 +482,8 @@ export default {
     },
 
     async deleteQuestion(id) {
-        await fetch(`http://127.0.0.1:5000/api/questions/${id}`, {
+        // await fetch(`http://127.0.0.1:5000/api/questions/${id}`, {
+        await fetch(`https://hrms-ocfa.onrender.com/api/questions/${id}`, {
         // await fetch(`http://35.182.29.153/api/questions/${id}`, {
         // await fetch(`https://phishing-application-demo.onrender.com/questions/${id}`, {
             method: 'DELETE'
@@ -518,7 +529,8 @@ export default {
         try {
             const pendingReports = this.reports.filter(report => report.status === 'Pending');
             for (const report of pendingReports) {
-                await fetch(`http://127.0.0.1:5000/api/send_reminder/${report.id}`, {
+                // await fetch(`http://127.0.0.1:5000/api/send_reminder/${report.id}`, {
+                await fetch(`https://hrms-ocfa.onrender.com/api/send_reminder/${report.id}`, {
                 // await fetch(`http://35.182.29.153/api/send_reminder/${report.id}`, {
                 // await fetch(`https://phishing-application-demo.onrender.com/send_reminder/${report.id}`, {
                     method: 'POST',
@@ -540,7 +552,8 @@ export default {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/delete_colleagues_data', {
+            // const response = await fetch('http://127.0.0.1:5000/api/delete_colleagues_data', {
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/delete_colleagues_data', {
             // const response = await fetch('http://35.182.29.153/api/delete_colleagues_data', {
             // const response = await fetch('https://phishing-application-demo.onrender.com/delete_colleagues_data', {
                 method: 'DELETE'
@@ -563,7 +576,8 @@ export default {
 
     async downloadCertificate(colleagueId) {
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/download-certificate/${colleagueId}`, {
+            // const response = await fetch(`http://127.0.0.1:5000/api/download-certificate/${colleagueId}`, {
+            const response = await fetch(`https://hrms-ocfa.onrender.com/api/download-certificate/${colleagueId}`, {
             // const response = await fetch(`http://35.182.29.153/api/download-certificate/${colleagueId}`, {
             // const response = await fetch(`https://phishing-application-demo.onrender.com/download-certificate/${colleagueId}`, {
                 method: 'GET',
@@ -593,7 +607,8 @@ export default {
 
     async downloadReportPdf() {
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/generate_reports_pdf');
+            // const response = await fetch('http://127.0.0.1:5000/api/generate_reports_pdf');
+            const response = await fetch('https://hrms-ocfa.onrender.com/api/generate_reports_pdf');
             // const response = await fetch('http://35.182.29.153/api/generate_reports_pdf');
             if (!response.ok) throw new Error('Failed to fetch PDF report');
 
@@ -614,7 +629,8 @@ export default {
 
     async downloadTrainingSessionsCsv() {
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/training-sessions/csv");
+            // const response = await fetch("http://127.0.0.1:5000/api/training-sessions/csv");
+            const response = await fetch("https://hrms-ocfa.onrender.com/api/training-sessions/csv");
             const blob = await response.blob();
 
             const url = window.URL.createObjectURL(blob);
